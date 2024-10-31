@@ -90,7 +90,7 @@ void Game::switch_turn() {
     // Find the index of cur_player in the players vector
     int cur_index = -1;
     for (int i = 0; i < n_player; ++i) {
-        if (&players[i] == cur_player) {  // Check by address to find the current player
+        if (&players[i] == cur_player) {  
             cur_index = i;
             break;
         }
@@ -115,7 +115,7 @@ void Game::switch_turn() {
     int after_next_index = (next_index + 1) % n_player;
     while (players[after_next_index].isDead()) {
         after_next_index = (after_next_index + 1) % n_player;
-        if (after_next_index == next_index) {  // Avoid infinite loop if only one alive player remains
+        if (after_next_index == next_index) {  
             std::cout << "Only one alive player remaining.\n";
             next_player = &players[next_index];
             return;

@@ -12,21 +12,15 @@ string getMaskedInput() {
     string input;
     termios oldt, newt;
 
-    // Get current terminal settings
     tcgetattr(STDIN_FILENO, &oldt);
     newt = oldt;
-
-    // Disable echo
     newt.c_lflag &= ~ECHO;
     tcsetattr(STDIN_FILENO, TCSANOW, &newt);
 
-    // Read input
     getline(cin, input);
-
-    // Restore old settings
     tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
 
-    cout << "\n";  // Move to the next line after input
+    cout << "\n";  
     return input;
 }
 
@@ -52,7 +46,7 @@ int main(int argc, char* argv[]){
 
         // placing card
         cout << "select cards to place (seperated by space): " << endl;
-        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // Clear the input buffer
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  
         string cards_to_place = getMaskedInput();
         // string cards_to_place;
         // getline(cin, cards_to_place);

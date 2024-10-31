@@ -1,7 +1,7 @@
 #include "Player.h"
 
 
-Player::Player() : bullets(4), dead(false) {}  // Default constructor sets bullets to 4
+Player::Player() : bullets(4), dead(false) {} 
 
 Player::Player(int b) : bullets{b}, dead{false} {}
 
@@ -16,7 +16,7 @@ bool Player::shoot() {
 
     int result = dist(gen);
 
-    bullets--;  // Decrement bullets after each shot
+    bullets--;  
 
     if (result == 1) {
         dead = true;
